@@ -9,10 +9,5 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
-
-<form action="" method="post">
-    ID: <input type="text" name="id">
-</form>
-
 </body>
 </html>
