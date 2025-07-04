@@ -1,5 +1,6 @@
 package com.example.SD20202SOF3012.buoi2.util;
 
+import com.example.SD20202SOF3012.buoi2.model.SinhVien;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -22,7 +23,7 @@ public class HibernateConfig {
         properties.put(Environment.PASS, "123456");
         properties.put(Environment.SHOW_SQL, "true");
 
-//        conf.addAnnotatedClass(ButXoa.class);
+        conf.addAnnotatedClass(SinhVien.class);
 
         conf.setProperties(properties);
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
