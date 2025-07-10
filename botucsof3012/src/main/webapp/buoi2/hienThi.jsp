@@ -12,6 +12,14 @@
     <title>Title</title>
 </head>
 <body>
+    Them thong tin nuoc hoa:
+    <form action="/buoi2/them" method="post">
+        Ten: <input type="text" name="ten"> <br>
+        So luong: <input type="text" name="soLuong"> <br>
+        Gia: <input type="text" name="gia"> <br>
+        <button>Submit</button>
+    </form>
+    <br>
     Thong tin nuoc hoa:
     <table>
         <thead>
@@ -30,6 +38,9 @@
                     <td>${nh.ten}</td>
                     <td>${nh.soLuong}</td>
                     <td>${nh.gia}</td>
+                    <td>
+                        <a href="/buoi2/chi-tiet?id=${nh.id}">Chi tiet</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>
