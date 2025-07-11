@@ -40,6 +40,8 @@
                     <td>${nh.gia}</td>
                     <td>
                         <a href="/buoi2/chi-tiet?id=${nh.id}">Chi tiet</a>
+                        <a href="/buoi2/view-update?id=${nh.id}">View update</a>
+                        <a href="/buoi2/xoa?id=${nh.id}">Xoa</a>
                     </td>
                 </tr>
             </c:forEach>

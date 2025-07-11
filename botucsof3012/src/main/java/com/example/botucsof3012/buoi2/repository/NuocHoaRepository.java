@@ -31,4 +31,26 @@ public class NuocHoaRepository {
             e.printStackTrace();
         }
     }
+
+    public void update(NuocHoa nuocHoa) {
+        try {
+            session.getTransaction().begin();
+            session.merge(nuocHoa);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void xoa(Integer id) {
+        try {
+            session.getTransaction().begin();
+            session.delete(this.chiTiet(id));
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
 }
