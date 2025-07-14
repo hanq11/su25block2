@@ -12,6 +12,14 @@
     <title>Title</title>
 </head>
 <body>
+    Them thong tin:
+    <form action="/sinh-vien/them" method="post">
+        Ten: <input type="text" name="ten"> <br>
+        Dia chi: <input type="text" name="diaChi"> <br>
+        Nam sinh: <input type="text" name="namSinh"> <br>
+        <button>Save</button>
+    </form>
+    <br>
     Bang thong tin:
     <table>
         <thead>
@@ -30,6 +38,11 @@
                     <td>${sv.ten}</td>
                     <td>${sv.diaChi}</td>
                     <td>${sv.namSinh}</td>
+                    <td>
+                        <a href="/sinh-vien/chi-tiet?id=${sv.id}">Chi tiet</a>
+                        <a href="/sinh-vien/view-update?id=${sv.id}">View update</a>
+                        <a href="/sinh-vien/xoa?id=${sv.id}">Xoa</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>
