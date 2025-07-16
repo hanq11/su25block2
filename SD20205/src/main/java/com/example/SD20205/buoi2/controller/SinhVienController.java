@@ -17,6 +17,9 @@ import java.io.IOException;
         "/sinh-vien/update", // POST
         "/sinh-vien/xoa", // GET
         "/sinh-vien/chi-tiet", // GET
+        "/sinh-vien/sap-xep", // GET
+        "/sinh-vien/search", // GET
+        "/sinh-vien/phan-trang" // GET
 })
 public class SinhVienController extends HttpServlet {
     SinhVienRepository svRepo = new SinhVienRepository();
@@ -32,7 +35,35 @@ public class SinhVienController extends HttpServlet {
             viewUpdate(req, resp);
         } else if(uri.contains("xoa")) {
             xoaSinhVien(req,resp);
+        } else if(uri.contains("sap-xep")) {
+            sapXep(req, resp);
+        } else if(uri.contains("search")) {
+            search(req, resp);
+        } else if(uri.contains("phan-trang")) {
+            phanTrang(req, resp);
         }
+    }
+
+    private void phanTrang(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int pageSize = 5;
+        int page = 0;
+        if(req.getParameter("page") != null && !req.getParameter("page").isEmpty()) {
+            page = Integer.valueOf(req.getParameter("page"));
+        }
+        req.setAttribute("danhSach", svRepo.phanTrang(page, pageSize));
+        req.setAttribute("page", page);
+        req.getRequestDispatcher("/buoi2/hien-thi.jsp").forward(req, resp);
+    }
+
+    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String ten = req.getParameter("ten");
+        req.setAttribute("danhSach", svRepo.searchByTen(ten));
+        req.getRequestDispatcher("/buoi2/hien-thi.jsp").forward(req, resp);
+    }
+
+    private void sapXep(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("danhSach", svRepo.sapXepTheoNamSinh());
+        req.getRequestDispatcher("/buoi2/hien-thi.jsp").forward(req, resp);
     }
 
     private void xoaSinhVien(HttpServletRequest req, HttpServletResponse resp) throws IOException {

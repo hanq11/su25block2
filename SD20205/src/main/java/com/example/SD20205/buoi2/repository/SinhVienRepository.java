@@ -3,6 +3,7 @@ package com.example.SD20205.buoi2.repository;
 import com.example.SD20205.buoi2.model.SinhVien;
 import com.example.SD20205.buoi2.util.HibernateConfig;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -54,4 +55,20 @@ public class SinhVienRepository {
         }
     }
 
+    public List<SinhVien> sapXepTheoNamSinh() {
+        return session.createQuery("FROM SinhVien sv ORDER BY sv.namSinh DESC").list();
+    }
+
+    public List<SinhVien> searchByTen(String ten) {
+        Query query = session.createQuery("FROM SinhVien sv WHERE ten LIKE :ten");
+        query.setParameter("ten", "%" + ten + "%");
+        return query.list();
+    }
+
+    public List<SinhVien> phanTrang(int page, int pageSize) {
+        Query query = session.createQuery("FROM SinhVien");
+        query.setFirstResult(page * pageSize);
+        query.setMaxResults(pageSize);
+        return query.list();
+    }
 }

@@ -20,6 +20,12 @@
         <button>Save</button>
     </form>
     <br>
+    <form action="/sinh-vien/search">
+        Ten: <input type="text" name="ten">
+        <button>Search</button>
+    </form>
+    <br>
+    <button><a href="/sinh-vien/sap-xep">Sap xep theo Nam sinh</a></button>
     Bang thong tin
     <table>
         <thead>
@@ -47,5 +53,7 @@
             </c:forEach>
         </tbody>
     </table>
+    <a href="/sinh-vien/phan-trang?page=${page - 1}">Prev</a>
+    <a href="/sinh-vien/phan-trang?page=${page + 1}">Next</a>
 </body>
 </html>
