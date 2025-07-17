@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/sinh-vien/add" method="post">
+        Id: <input type="text" name="id"> <br>
+        Ten: <input type="text" name="ten"> <br>
+        Diem: <input type="text" name="diem"> <br>
+        <button>them</button>
+    </form>
+    <br>
+    Danh sach sinh vien:
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ten</th>
+                <th>Diem</th>
+                <th>Hanh dong</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="sv : ${danhSach}">
+                <tr>
+                    <td th:text="${sv.id}"></td>
+                    <td th:text="${sv.ten}"></td>
+                    <td th:text="${sv.diem}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
