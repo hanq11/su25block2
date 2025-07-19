@@ -39,9 +39,9 @@ public class SinhVienService {
 //        list.replaceAll((sv -> sinhVien.getId() == sv.getId() ? sinhVien : sv));
         // Cach 2
         int index = -1;
-        for(SinhVien sv: list) {
-            if(sinhVien.getId() == sv.getId()) {
-                index = sv.getId();
+        for(int i = 0; i < list.size(); i++) {
+            if(list.get(i).getId() == sinhVien.getId()) {
+                index = i;
                 break;
             }
         }

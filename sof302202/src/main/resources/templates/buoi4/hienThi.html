@@ -28,6 +28,11 @@
                     <td th:text="${sv.id}"></td>
                     <td th:text="${sv.ten}"></td>
                     <td th:text="${sv.diem}"></td>
+                    <td>
+                        <a th:href="@{|/sinh-vien/view-update/${sv.id}|}">View update</a>
+                        <a th:href="@{|/sinh-vien/delete?id=${sv.id}|}">Delete</a>
+                        <a th:href="@{|/sinh-vien/detail/${sv.id}|}">Detail</a>
+                    </td>
                 </tr>
             </th:block>
         </tbody>

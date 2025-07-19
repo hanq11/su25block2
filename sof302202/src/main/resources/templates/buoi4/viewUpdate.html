@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Sua thong tin
+    <form action="/sinh-vien/update" method="post">
+        Id: <input type="text" name="id" th:value="${sv.id}"> <br>
+        Ten: <input type="text" name="ten" th:value="${sv.ten}"> <br>
+        Diem: <input type="text" name="diem" th:value="${sv.diem}"> <br>
+        <button>Sua</button>
+    </form>
+</body>
+</html>
