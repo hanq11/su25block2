@@ -12,6 +12,24 @@
     <title>Title</title>
 </head>
 <body>
+    Them sach:
+    <form action="/buoi7/add" method="post">
+        Ten sach: <input type="text" name="tenSach"> <br>
+        Tac gia: <input type="text" name="tacGia"> <br>
+        Gia: <input type="text" name="gia"> <br>
+        So luong: <input type="text" name="soLuong"> <br>
+        Con hang: Con hang <input type="radio" name="conHang" value="true">
+        Het hang <input type="radio" name="conHang" value="false"> <br>
+        The loai:
+        <select name="theLoai">
+            <c:forEach items="${listTheLoai}" var="theLoai">
+                <option value="${theLoai.id}" label="${theLoai.tenTheLoai}"></option>
+            </c:forEach>
+        </select>
+        <br>
+        <button>Save</button>
+    </form>
+    <br>
     Thong tin sach:
     <table>
         <thead>
@@ -36,6 +54,10 @@
                     <td>${sach.soLuong}</td>
                     <td>${sach.conHang == "true" ? "Con hang" : "Het hang"}</td>
                     <td>${sach.theLoai.tenTheLoai}</td>
+                    <td>
+                        <a href="/buoi7/view-update?id=${sach.id}">View update</a>
+                        <a href="/buoi7/delete?id=${sach.id}">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>
