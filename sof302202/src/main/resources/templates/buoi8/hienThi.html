@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Them thong tin:
+    <form action="/phong-kham/add" method="post">
+        Ten: <input type="text" name="ten"> <br>
+        Dia chi: <input type="text" name="diaChi"> <br>
+        <button>Save</button>
+    </form>
+    <br>
+    Bang thong tin:
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ten</th>
+                <th>Dia Chi</th>
+                <th>Hanh dong</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="pk : ${danhSach}">
+                <tr>
+                    <td th:text="${pk.id}"></td>
+                    <td th:text="${pk.ten}"></td>
+                    <td th:text="${pk.diaChi}"></td>
+                    <td>
+                        <a th:href="@{|/phong-kham/view-update/${pk.id}|}">View update</a>
+                        <a th:href="@{|/phong-kham/delete?id=${pk.id}|}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

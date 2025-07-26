@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Sua thong tin:
+    <form action="/phong-kham/update" method="post">
+        Id: <input type="text" name="id" th:value="${phongKham.id}"> <br>
+        Ten: <input type="text" name="ten" th:value="${phongKham.ten}"> <br>
+        Dia chi: <input type="text" name="diaChi" th:value="${phongKham.diaChi}"> <br>
+        <button>Save</button>
+    </form>
+</body>
+</html>
