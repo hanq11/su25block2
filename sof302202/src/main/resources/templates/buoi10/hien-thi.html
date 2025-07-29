@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Bang thong tin:
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ten bai hat</th>
+                <th>Thoi luong</th>
+                <th>Phat hanh chua</th>
+                <th>Ca si</th>
+                <th>Hanh dong</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="baiHat : ${listBaiHat}">
+                <tr>
+                    <td th:text="${baiHat.id}"></td>
+                    <td th:text="${baiHat.tenBaiHat}"></td>
+                    <td th:text="${baiHat.thoiLuong}"></td>
+                    <td th:text="${baiHat.phatHanhChua.equals(true) ? 'Roi' : 'Chua'}"></td>
+                    <td th:text="${baiHat.caSi.tenCaSi}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
