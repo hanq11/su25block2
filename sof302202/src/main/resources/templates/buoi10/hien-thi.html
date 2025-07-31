@@ -5,6 +5,27 @@
     <title>Title</title>
 </head>
 <body>
+    Them thong tin:
+    <form action="/bai-hat/them" method="post">
+        Ten bai hat: <input type="text" name="tenBaiHat"> <br>
+        Thoi luong: <input type="text" name="thoiLuong"> <br>
+        Phat hanh:
+            Chua <input type="radio" name="phatHanhChua" value="false">
+            Roi <input type="radio" name="phatHanhChua" value="true">
+        <br>
+        Ca si:
+        <select name="caSi">
+            <option
+                    th:each="cs : ${listCaSi}"
+                    th:value="${cs.id}"
+                    th:text="${cs.tenCaSi}"
+            >
+            </option>
+        </select>
+        <br>
+        <button>Save</button>
+    </form>
+    <br>
     Bang thong tin:
     <table>
         <thead>
@@ -25,6 +46,10 @@
                     <td th:text="${baiHat.thoiLuong}"></td>
                     <td th:text="${baiHat.phatHanhChua.equals(true) ? 'Roi' : 'Chua'}"></td>
                     <td th:text="${baiHat.caSi.tenCaSi}"></td>
+                    <td>
+                        <a th:href="@{|/bai-hat/xoa?id=${baiHat.id}|}">Xoa</a>
+                        <a th:href="@{|/bai-hat/view-update/${baiHat.id}|}">Update</a>
+                    </td>
                 </tr>
             </th:block>
         </tbody>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Sua thong tin:
+    <form action="/bai-hat/update" method="post">
+        Id: <input type="text" name="id" th:value="${baiHat.id}"> <br>
+        Ten bai hat: <input type="text" name="tenBaiHat" th:value="${baiHat.tenBaiHat}"> <br>
+        Thoi luong: <input type="text" name="thoiLuong" th:value="${baiHat.thoiLuong}"> <br>
+        Phat hanh:
+        Chua <input type="radio" name="phatHanhChua" value="false" th:checked="${baiHat.phatHanhChua == false}">
+        Roi <input type="radio" name="phatHanhChua" value="true" th:checked="${baiHat.phatHanhChua == true}">
+        <br>
+        Ca si:
+        <select name="caSi">
+            <option
+                    th:each="cs : ${listCaSi}"
+                    th:value="${cs.id}"
+                    th:text="${cs.tenCaSi}"
+                    th:selected="${cs.id == baiHat.caSi.id}"
+            >
+            </option>
+        </select>
+        <br>
+        <button>Save</button>
+    </form>
+</body>
+</html>
