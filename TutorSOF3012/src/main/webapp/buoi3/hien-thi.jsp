@@ -30,7 +30,7 @@
         <button>Save</button>
     </form>
     <br>
-    Bang thong tin:
+    Bang thong tin nhan vien:
     <table>
         <thead>
             <tr>
