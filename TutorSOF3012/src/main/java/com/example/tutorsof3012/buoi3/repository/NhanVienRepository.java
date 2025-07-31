@@ -27,4 +27,30 @@ public class NhanVienRepository {
             e.printStackTrace();
         }
     }
+
+    public NhanVien getOne(Integer id) {
+        return session.find(NhanVien.class, id);
+    }
+
+    public void updateNhanVien(NhanVien nhanVien) {
+        try {
+            session.getTransaction().begin();
+            session.merge(nhanVien);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteNhanVien(Integer id) {
+        try {
+            session.getTransaction().begin();
+            session.delete(this.getOne(id));
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
 }

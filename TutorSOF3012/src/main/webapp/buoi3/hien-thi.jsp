@@ -51,6 +51,10 @@
                     <td>${nv.luong}</td>
                     <td>${nv.dangLamViec == "true" ? "Dang lam viec" : "Nghi viec"}</td>
                     <td>${nv.phongBan.ten}</td>
+                    <td>
+                        <a href="/nhan-vien/view-update?id=${nv.id}">View update</a>
+                        <a href="/nhan-vien/delete?id=${nv.id}">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>
