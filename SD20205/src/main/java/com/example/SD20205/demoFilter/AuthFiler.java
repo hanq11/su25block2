@@ -33,7 +33,7 @@ public class AuthFiler implements Filter {
                 filterChain.doFilter(req, resp);
             } else if(role.equals("employeePermission")) {
                 String uri = req.getRequestURI();
-                if(uri.startsWith("/nhan-vien")) {
+                if(uri.contains("nhan-vien")) {
                     filterChain.doFilter(req, resp);
                 } else {
                     req.getRequestDispatcher("/demoFilter/403.jsp").forward(req, resp);
