@@ -12,6 +12,14 @@
     <title>Title</title>
 </head>
 <body>
+    <button><a href="/nhan-vien/sortLuong">Sort luong</a></button>
+    <br>
+    Tim kiem theo ten:
+    <form action="/nhan-vien/search">
+        Ten nhan vien: <input type="text" name="ten">
+        <button>Search</button>
+    </form>
+    <br>
     Them thong tin:
     <form action="/nhan-vien/add" method="post">
         Ho ten: <input type="text" name="hoTen"> <br>
@@ -59,5 +67,7 @@
             </c:forEach>
         </tbody>
     </table>
+    <a href="/nhan-vien/phan-trang?page=${page-1}">Prev</a>
+    <a href="/nhan-vien/phan-trang?page=${page+1}">Next</a>
 </body>
 </html>

@@ -67,6 +67,13 @@
             <version>3.0.1</version>
         </dependency>
 <!--        Su dung cac ham trong jsp: c:forEach-->
+<!--        Su dung cho ajax-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+<!--        Su dung cho ajax-->
     </dependencies>
 
     <build>

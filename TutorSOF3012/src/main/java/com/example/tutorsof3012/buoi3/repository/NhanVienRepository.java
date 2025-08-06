@@ -3,6 +3,7 @@ package com.example.tutorsof3012.buoi3.repository;
 import com.example.tutorsof3012.buoi3.model.NhanVien;
 import com.example.tutorsof3012.buoi3.util.HibernateConfig;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -52,5 +53,23 @@ public class NhanVienRepository {
             session.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
+
+    public List<NhanVien> phanTrang(int page, int pageSize) {
+        Query query = session.createQuery("FROM NhanVien");
+        query.setFirstResult(page * pageSize);
+        query.setMaxResults(pageSize);
+        return query.list();
+    }
+
+    public List<NhanVien> search(String ten) {
+        Query query = session.createQuery("FROM NhanVien nv WHERE nv.hoTen LIKE :ten");
+        query.setParameter("ten", "%" + ten + "%");
+        return query.list();
+    }
+
+    public List<NhanVien> sortLuong() {
+        Query query = session.createQuery("FROM NhanVien nv ORDER BY nv.luong");
+        return query.list();
     }
 }
