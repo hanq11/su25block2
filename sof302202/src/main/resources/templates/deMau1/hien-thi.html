@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="">
+        <select name="chucVu">
+            <option
+                    th:each="cv : ${listChucVu}"
+                    th:text="${cv.maChucVu}"
+                    th:value="${cv.id}"
+            ></option>
+        </select>
+        <br>
+        <button>Save</button>
+    </form>
+<br>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ma nhan vien</th>
+                <th>Ho ten</th>
+                <th>Gioi tinh</th>
+                <th>Sdt</th>
+                <th>Ma chuc vu</th>
+                <th>Ten chuc vu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each=" nv : ${listNhanVien}">
+                <tr>
+                    <td th:text="${nv.id}"></td>
+                    <td th:text="${nv.maNhanVien}"></td>
+                    <td th:text="${nv.hoTen}"></td>
+                    <td th:text="${nv.gioiTinh.equals(false) ? 'Nam' : 'Nu'}"></td>
+                    <td th:text="${nv.soDienThoai}"></td>
+                    <td th:text="${nv.chucVu.maChucVu}"></td>
+                    <td th:text="${nv.chucVu.tenChucVu}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
